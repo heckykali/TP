@@ -61,7 +61,15 @@ $order_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total 
             $result = mysqli_query($conn, "SELECT * FROM products");
             include("show_product.php");
         } elseif ($page == "categories") {
-            $result = mysqli_query($conn, "SELECT * FROM category");
+            $result = mysqli_query($conn, "
+                SELECT 
+                    p.*, 
+                    c.category_name, 
+                    b.brand_name 
+                FROM products p
+                JOIN category c ON p.category_id = c.category_id
+                JOIN brand b ON p.brand_id = b.brand_id
+            ");
             include("show_cate.php");
         } elseif ($page == "brands") {
             $result = mysqli_query($conn, "SELECT * FROM brand");

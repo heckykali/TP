@@ -40,8 +40,9 @@ table td {
     z-index:999;
 }
 
-/* Modal Background */
-#addUserModal{
+
+#addProductModal,
+#editProductModal {
     display:none;
     position:fixed;
     top:0;
@@ -95,7 +96,7 @@ table td {
 .DAB input[type="email"],
 .DAB input[type="text"]{
     width:100%;
-    padding:10px;
+    padding:10px 0;
     margin-top:5px;
     border:1px solid #ccc;
     border-radius:5px;
