@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2026 at 06:59 PM
+-- Generation Time: Mar 21, 2026 at 10:32 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,8 +89,7 @@ INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `price`, `to
 (2, 2, 2, 1, 450.00, 450.00, '2026-02-19 21:21:30'),
 (3, 3, 3, 3, 199.00, 597.00, '2026-02-19 21:21:30'),
 (4, 4, 4, 1, 599.00, 599.00, '2026-02-19 21:21:30'),
-(5, 5, 5, 2, 349.00, 698.00, '2026-02-19 21:21:30'),
-(27, 1, 2, 13, 349.00, 4537.00, '2026-03-11 22:59:21');
+(5, 5, 5, 2, 349.00, 698.00, '2026-02-19 21:21:30');
 
 -- --------------------------------------------------------
 
@@ -156,42 +155,19 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `order_date`, `status`, `price`, `quantity`, `total_amount`, `user_id`, `product_id`) VALUES
-(1, '2026-02-12 17:18:57', '', 299.00, 1, 299.00, 1, 1),
-(2, '2026-02-12 17:18:57', '', 349.00, 2, 698.00, 2, 2),
-(3, '2026-02-12 17:18:57', '', 499.00, 1, 499.00, 3, 3),
-(4, '2026-02-12 17:18:57', '', 599.00, 1, 599.00, 4, 4),
-(5, '2026-02-12 17:18:57', '', 199.00, 3, 597.00, 5, 5),
+(2, '2026-02-12 17:18:57', 'Completed', 349.00, 2, 698.00, 2, 2),
+(3, '2026-02-12 17:18:57', 'Cancelled', 499.00, 1, 499.00, 3, 3),
+(5, '2026-02-12 17:18:57', 'Completed', 199.00, 3, 597.00, 5, 5),
 (6, '2026-02-22 04:57:32', 'Pending', 299.00, 2, 598.00, 1, 1),
 (7, '2026-02-22 04:57:32', 'Pending', 349.00, 3, 1047.00, 1, 2),
-(8, '2026-02-22 04:57:32', 'Pending', 199.00, 2, 398.00, 1, 5),
+(8, '2026-02-22 04:57:32', 'Completed', 199.00, 2, 398.00, 1, 5),
 (9, '2026-03-11 12:45:12', 'Pending', 349.00, 8, 2792.00, 1, 2),
 (10, '2026-03-11 12:45:56', 'Pending', 299.00, 9, 2691.00, 1, 1),
-(11, '2026-03-11 12:45:56', 'Pending', 499.00, 1, 499.00, 1, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_details`
---
-
-CREATE TABLE `order_details` (
-  `order_detail_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`order_detail_id`, `order_id`, `product_id`, `quantity`, `price`) VALUES
-(6, 1, 1, 2, 299.00),
-(7, 2, 2, 1, 450.00),
-(8, 3, 3, 3, 199.00),
-(9, 4, 4, 1, 599.00),
-(10, 5, 5, 2, 349.00);
+(11, '2026-03-11 12:45:56', 'Pending', 499.00, 1, 499.00, 1, 3),
+(12, '2026-03-20 12:47:11', 'Pending', 499.00, 5, 2495.00, 1, 3),
+(13, '2026-03-20 12:47:11', 'Pending', 349.00, 1, 349.00, 1, 2),
+(14, '2026-03-20 12:47:11', 'Pending', 299.00, 1, 299.00, 1, 1),
+(15, '2026-03-20 14:52:48', 'Pending', 499.00, 9, 4491.00, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -246,7 +222,6 @@ INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `phone`, `address`) 
 (3, 'Tithi Patel', 'pateltithi1207@gmail.com', '123', '9876543210', 'nashik'),
 (4, 'siddhi patel', 'sp@gmail.com', '321', '9638501470', 'palanpur'),
 (5, 'Karan Joshi', 'karan@gmail.com', '1234', '9012345678', 'Rajkot'),
-(6, 'Amit Shah', 'amit@gmail.com', '12345', '9123456780', 'Surat'),
 (7, 'Neha Mehta', 'neha@gmail.com', '123456', '9988776655', 'Vadodara'),
 (8, 'bhavya patel', 'bp@gmail.com', '654', '7418529630', 'himmatnagar');
 
@@ -296,14 +271,6 @@ ALTER TABLE `orders`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`order_detail_id`),
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -338,7 +305,7 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -356,13 +323,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `order_details`
---
-ALTER TABLE `order_details`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `order_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -393,13 +354,6 @@ ALTER TABLE `cart`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `products`
