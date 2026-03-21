@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -68,7 +68,7 @@ if (isset($_POST['add_to_cart'])) {
 
 
 
-    header("Location: shoppage.php");
-    exit();
+    // header("Location: shoppage.php");
+    // exit();
 }
 ?>

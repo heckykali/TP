@@ -69,11 +69,19 @@ $order_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total 
         } elseif ($page == "orders") {
             // Join orders with user and products to get names
             $result = mysqli_query($conn, "
-                SELECT o.order_id, u.name as user_name, p.product_name, o.quantity, o.total_amount, o.status
+                SELECT 
+                    o.order_id,
+                    o.user_id,
+                    o.product_id,
+                    u.name AS user_name,
+                    p.product_name,
+                    o.quantity,
+                    o.total_amount,
+                    o.status
                 FROM orders o
                 JOIN user u ON o.user_id = u.user_id
                 JOIN products p ON o.product_id = p.product_id
-                ORDER BY o.order_id 
+                ORDER BY o.order_id
             ");
             include("show_orders.php");
         } elseif ($page == "contact") {

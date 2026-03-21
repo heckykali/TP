@@ -39,6 +39,8 @@ $query = "SELECT products.*, category.category_name
           $where";
 
 $result = mysqli_query($conn, $query);
+
+require_once("add_card.php");
 ?>
 
 <!DOCTYPE html>
@@ -171,7 +173,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 
     <div class="card">
-        <form action="add_card.php" method="post">
+        <form action="" method="post">
             <div class="category"><?php echo htmlspecialchars($row['category_name']); ?></div>
 
             <?php if($row['image']) { ?>
