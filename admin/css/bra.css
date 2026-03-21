@@ -1,33 +1,17 @@
-button {
-    background: black;
-    color: white;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Add Order Button */
+button{
+    background:#000;
+    color:#fff;
+    padding:10px 18px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    /* margin-bottom:15px; */
+    font-size:14px;
 }
 
-button:hover {
-    background: #333;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-table th {
-    background: black;
-    color: white;
-    padding: 10px;
-    text-align:center;
-}
-
-table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
+button:hover{
+    background:#333;
 }
 
 .modal{
@@ -41,9 +25,9 @@ table td {
     z-index:999;
 }
 
-
-#addProductModal,
-#editProductModal {
+/* Modal Background */
+#addBrandModal,
+#editBrandModal {
     display:none;
     position:fixed;
     top:0;
@@ -53,7 +37,6 @@ table td {
     background:rgba(0,0,0,0.6);
     z-index:999;
 }
-
 /* Modal Box */
 .DAB{
     background:#fff;
@@ -94,8 +77,6 @@ table td {
 
 .DAB select,
 .DAB input[type="number"],
-.DAB input[type="email"],
-.DAB input[type="file"],
 .DAB input[type="text"]{
     width:100%;
     padding:10px 0;
@@ -119,4 +100,36 @@ table td {
 
 .DAB input[type="submit"]:hover{
     background:#333;
+}
+
+/* Table Styling */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+table th{
+    background:#000;
+    color:#fff;
+    padding:12px;
+    text-align:center;
+}
+
+table td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        transform:translateY(-20px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
 }
