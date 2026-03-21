@@ -114,12 +114,9 @@ if (isset($_GET["order_id"])) {
     </table>
 
     <!-- Add Order Modal -->
-    <div id="addOrderModal"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); padding-top:100px;">
-        <div class="DAB"
-            style="background:white; margin:auto; padding:20px; width:400px; border-radius:5px; position:relative;">
-            <span onclick="document.getElementById('addOrderModal').style.display='none'"
-                style="position:absolute; top:10px; right:20px; cursor:pointer;">&times;</span>
+    <div id="addOrderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); padding-top:100px;">
+        <div class="DAB" style="background:white; margin:auto; padding:20px; width:400px; border-radius:5px; position:relative;">
+            <span onclick="document.getElementById('addOrderModal').style.display='none'" style="position:absolute; top:10px; right:20px; cursor:pointer;">&times;</span>
             <h3>Add New Order</h3>
             <form method="post">
                 <label>User:</label><br>

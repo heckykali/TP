@@ -29,35 +29,91 @@ table td {
     text-align: center;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    top: 0;
-    left: 0;
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:999;
 }
 
-.box {
-    background: white;
-    width: 350px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
+/* Modal Background */
+#addUserModal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:999;
 }
 
-.box span {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 20px;
+/* Modal Box */
+.DAB{
+    background:#fff;
+    width:400px;
+    margin:80px auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    position:relative;
+    animation:fadeIn 0.3s ease-in-out;
 }
 
-.box input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
+/* Close Button */
+.DAB span{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:22px;
+    cursor:pointer;
+    color:#333;
+}
+
+.DAB span:hover{
+    color:red;
+}
+
+/* Heading */
+.DAB h3{
+    margin-bottom:20px;
+    text-align:center;
+}
+
+/* Form Fields */
+.DAB label{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.DAB select,
+.DAB input[type="number"],
+.DAB input[type="email"],
+.DAB input[type="text"]{
+    width:100%;
+    padding:10px 0;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    outline:none;
+}
+
+/* Submit Button */
+.DAB input[type="submit"]{
+    width:100%;
+    background:#000;
+    color:#fff;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.DAB input[type="submit"]:hover{
+    background:#333;
 }
