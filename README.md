@@ -74,7 +74,18 @@ c:/xampp/htdocs/TP/
 - Manage: Products (`show_product.php`), Categories (`show_cate.php`), Brands (`show_brands.php`), Orders (`show_orders.php`), Users (`show_user.php`), Contacts (`show_contact.php`)
 
 ## Screenshots
-*(Add screenshots of homepage, shop, admin dashboard here if desired)*
+
+#### Homepage Background
+![Homepage Background](images/homep_bg.jpg)
+
+#### Login Background
+![Login Background](images/login_bg.jpg)
+
+#### Sample Product Images
+![Product 1](images/1.jpg) ![Product 2](images/2.jpg) ![Product 3](images/3.jpg)
+
+*(Add more screenshots of live pages via browser captures for homepage, shop, admin dashboard)*
+
 
 ## Notes
 - Update database credentials in `admin/db.php` if needed.
