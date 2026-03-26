@@ -1,5 +1,12 @@
 <?php
+
 include("db.php");
+session_start();
+
+if(!isset($_SESSION['admin'])) {
+    header("Location: index.php");
+    exit();
+}
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 

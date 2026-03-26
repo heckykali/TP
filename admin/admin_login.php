@@ -1,4 +1,12 @@
 <?php
+include("db.php");
+session_start();
+
+if(!isset($_SESSION['admin'])) {
+    header("Location: index.php");
+    exit();
+}
+
 session_start();
 
 /* Database Connection */
