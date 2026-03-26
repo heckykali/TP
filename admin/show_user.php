@@ -49,7 +49,7 @@ if (isset($_GET['delete_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Table</title>
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/usr.css">
 </head>
 
 <body>

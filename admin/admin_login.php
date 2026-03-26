@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else
     {
-        echo "<script>alert('Invalid Username or Password'); window.location='admin_login.html';</script>";
+        echo "<script>alert('Invalid Username or Password'); window.location='index.php';</script>";
     }
 }
 ?>

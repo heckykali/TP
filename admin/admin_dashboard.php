@@ -8,6 +8,9 @@ $admin_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total 
 $user_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM user"))['total'];
 $product_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM products"))['total'];
 $order_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM orders"))['total'];
+$category_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM category"))['total'];
+$brand_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM brand"))['total'];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,6 +50,14 @@ $order_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total 
                 <p>Products</p>
             </div>
             <div class="card">
+                <h3><?php echo $category_count; ?></h3>
+                <p>Categories</p>
+            </div>
+            <div class="card">
+                <h3><?php echo $brand_count; ?></h3>
+                <p>Brands</p>
+            </div>
+            <div class="card">
                 <h3><?php echo $order_count; ?></h3>
                 <p>Orders</p>
             </div>
@@ -66,7 +77,7 @@ $order_count = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total 
                 FROM products p
                 JOIN category c ON p.category_id = c.category_id
                 JOIN brand b ON p.brand_id = b.brand_id
-
+                ORDER BY p.product_id
             ");
             include("show_product.php");
         } elseif ($page == "categories") {
